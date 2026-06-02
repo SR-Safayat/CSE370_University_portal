@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include 'includes/db.php';
 
 $error = "";
 
@@ -19,7 +19,7 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['user_id'] = $row['s_id'];
             $_SESSION['user_name'] = $row['first_name'];
             $_SESSION['role'] = 'student';
-            header("Location: dashboard.php"); // Go to Student Dashboard
+            header("Location: pages/dashboard.php");
             exit();
         } else {
             $error = "Invalid Student ID or Password!";
@@ -35,7 +35,7 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['user_id'] = $row['t_id'];
             $_SESSION['user_name'] = $row['name'];
             $_SESSION['role'] = 'teacher';
-            header("Location: teacher_dashboard.php"); // Go to Teacher Dashboard
+            header("Location: pages/teacher_dashboard.php");
             exit();
         } else {
             $error = "Invalid Faculty ID or Password!";
@@ -48,7 +48,7 @@ if (isset($_POST['login_btn'])) {
 <html>
 <head>
     <title>University Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
